@@ -4,21 +4,19 @@
 #include<vector>
 
 using namespace std;
-bool Checkers::Check_for_King(vector<vector<char>> board,int row1,int col1){
+bool Checkers::Kinged(vector<vector<char>> board,int row1,int col1){
     if(board[row1][col1]!='X'&&board[row1][col1]!='O'){
         return false;
     }
     return true;
 }
 bool Checkers::Move(vector<vector<char>> board,int row1,int col1,int row2, int col2){
-    if(Check_for_King(board,row1,col1)==false){
+    if(Kinged(board,row1,col1)==false){
         if((row2==row1+1&&row2==row1+1)&&(col2==col1+1&&col2==col1-1&&col2==col1+2&&col2==col1-2)){
 
         }
 
     }
-
-
 }
 
 

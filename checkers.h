@@ -10,7 +10,8 @@ class Checkers{
     public:
         bool Winner(vector<vector<char>> board);
         bool Move(vector<vector<char>> board,int row1,int col1,int row2, int col2);
-        void JumpPiece(char piece1, char piece2);
-        bool Check_for_King(vector<vector<char>> board,int row1,int col1);
+        void Jump(char piece1, char piece2);
+        bool Kinged(vector<vector<char>> board,int row1,int col1);
+        bool Winner(vector<vector<char>> board);
         void Display(vector<vector<char>> board);
 };
