@@ -39,6 +39,6 @@ int main(){
     if(c.Move() == true){
         swap(board[row1][col1],board[row2][col2]);
     }
-            }while(c.JumpPiece(Player1, Player2));   //FIX THIS!!!
+            }while(c.jump(Player1, Player2));   //FIX THIS!!!
         }
 }
