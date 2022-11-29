@@ -7,7 +7,7 @@ int main(){
     Checkers c; //Object when calling functions
 
     int turn = 1; // Tracks turns
-    
+
     cout << "Welcome to checkers" << endl;
     vector<vector<char>> board{
         {' ','x',' ','x',' ','x',' ','x'},
@@ -33,13 +33,16 @@ int main(){
 
             if(turn % 2 == 1) cout << "It's Player 1 (o's) turn. " << endl;
             else cout << "It's Player 2 (x's) turn. " << endl; 
-            cout << "Enter the piece you want to move" << endl;
+
             int row1,col1,row2,col2;
+            
+            cout << "Enter the piece you want to move" << endl;
             cin >> row1 >> col1;
+
             cout << "Enter the place you want to move to" << endl;
             cin >> row2 >> col2;
 
-            if(c.Move() == true){
+            if(c.move() == true){
                 swap(board[row1][col1],board[row2][col2]);
             }
             turn += 1;
