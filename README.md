@@ -1,4 +1,3 @@
-
 Git commands:
 "git push" -pushes current local system to branch
 "git pull"  -pulls updated files from github repository to local system

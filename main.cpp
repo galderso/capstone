@@ -36,9 +36,9 @@ int main(){
     cout<< "Enter the place you want to move to"<<endl;
     cin>>row2>>col2;
 
-    if(move()){
+    if(c.Move() == true){
         swap(board[row1][col1],board[row2][col2]);
     }
-            }while(jumpAgain());   
+            }while(c.JumpPiece(Player1, Player2));   //FIX THIS!!!
         }
 }
