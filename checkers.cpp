@@ -1,9 +1,10 @@
 //checkers
+#include "checkers.h"
 #include<iostream>
 #include<vector>
 
 using namespace std;
-bool winner(vector<vector<int>> board){
+bool Checkers::Winner(vector<vector<char>> board){
     int count1=0,count2=0;
     for(int i =0 ;i<8;i++){
         for(int j = 0;j<8;j++){
@@ -71,4 +72,3 @@ int main(){
     //jump: checks if move is a jump and if jump is possible(inbetween is opposite)and removes inbetween
     //jumpAgain: checks if jump again is possible
     //winner: checks if x or o is no longer on the board
-
