@@ -2,14 +2,15 @@
 #include "checkers.h"
 #include<iostream>
 #include<vector>
-
 using namespace std;
+
 bool Checkers::Kinged(vector<vector<char>> board,int row1,int col1){
     if(board[row1][col1]!='X'&&board[row1][col1]!='O'){
         return false;
     }
     return true;
 }
+
 bool Checkers::Move(vector<vector<char>> &board,int row1,int col1,int row2, int col2){
     if(Kinged(board,row1,col1)==false){// if not kinged
         if(board[row1][col1]=='x'){
@@ -24,14 +25,13 @@ bool Checkers::Move(vector<vector<char>> &board,int row1,int col1,int row2, int 
             }
 
         }else{
-            cout << "Invalid peace"<<endl;
+            cout << "Invalid piece" <<endl;
         }
 
     }else{// has been kinged conditions
 
     }
 }
-
 
 bool Checkers::Winner(vector<vector<char>> board){
     int count1=0,count2=0;
