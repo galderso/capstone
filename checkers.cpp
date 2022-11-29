@@ -70,7 +70,7 @@ void Checkers::Jump(vector<vector<char>> &board, int row1, int col1, int row2, i
 
 /*
 
-   void swap(int i,int j){
+   void swap(int &i,int &j){
     int temp = i;
     i=j;
     j=temp;
