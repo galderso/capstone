@@ -7,7 +7,7 @@ int main(){
     Checkers c; //Object when calling functions
 
     int turn = 1; // Tracks turns
-    
+
     cout << "Welcome to checkers" << endl;
     vector<vector<char>> board{
         {' ','x',' ','x',' ','x',' ','x'},
