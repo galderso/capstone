@@ -6,7 +6,7 @@
 using namespace std;
 
 bool move(int row1,int col1,int row2, int col2){
-    if(kinged()==false){
+    if(Check_for_King()==false){
 
     }
 
