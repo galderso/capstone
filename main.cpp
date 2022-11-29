@@ -46,7 +46,7 @@ int main(){
                 swap(board[row1][col1],board[row2][col2])
             }
             turn += 1;
-        } while(c.jump(Player1, Player2));   //FIX THIS!!!
+        } while(c.Jump());   //FIX THIS!!!
     }
 
     return 0;
