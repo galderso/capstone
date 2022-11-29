@@ -3,7 +3,17 @@
 #include<vector>
 
 using namespace std;
-bool winner(vector<vector<int>> board){
+
+bool move(int row1,int col1,int row2, int col2){
+    if(kinged()==false){
+
+    }
+
+
+}
+
+
+bool winner(vector<vector<char>> board){
     int count1=0,count2=0;
     for(int i =0 ;i<8;i++){
         for(int j = 0;j<8;j++){
@@ -20,6 +30,7 @@ bool winner(vector<vector<int>> board){
     }
     return false;
 }
+
 int main(){
     cout <<"Welcome to checkers"<<endl;
 
@@ -33,7 +44,7 @@ int main(){
          {' ','o',' ','o',' ','o',' ','o'},
          {'o',' ','o',' ','o',' ','o',' '}
          };
-         while((winner(board))!=false){
+         while(winner(board)!=false){
             do{
          cout<<"  0 1 2 3 4 5 6 7"<<endl;
          for(int i =0;i<8;i++){
@@ -51,12 +62,13 @@ int main(){
     cout<< "Enter the place you want to move to"<<endl;
     cin>>row2>>col2;
 
-    if(move()){
+    if(move(row1,col1,row2,col2)){
         swap(board[row1][col1],board[row2][col2]);
     }
     }while(jumpAgain());   
 }
 }  
+
 
 /*
 
@@ -71,4 +83,4 @@ int main(){
     //jump: checks if move is a jump and if jump is possible(inbetween is opposite)and removes inbetween
     //jumpAgain: checks if jump again is possible
     //winner: checks if x or o is no longer on the board
-
+    //kinged:checks if current piece is kinged
