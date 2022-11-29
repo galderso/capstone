@@ -20,43 +20,6 @@ bool Checkers::Winner(vector<vector<char>> board){
         return true;
     }
     return false;
-}
-int main(){
-    cout <<"Welcome to checkers"<<endl;
-
-   vector<vector<char>> board{
-         {' ','x',' ','x',' ','x',' ','x'},
-         {'x',' ','x',' ','x',' ','x',' '},
-         {' ',' ',' ',' ',' ',' ',' ',' '},
-         {' ',' ',' ',' ',' ',' ',' ',' '},
-         {' ',' ',' ',' ',' ',' ',' ',' '},
-         {' ',' ',' ',' ',' ',' ',' ',' '},
-         {' ','o',' ','o',' ','o',' ','o'},
-         {'o',' ','o',' ','o',' ','o',' '}
-         };
-         while((winner(board))!=false){
-            do{
-         cout<<"  0 1 2 3 4 5 6 7"<<endl;
-         for(int i =0;i<8;i++){
-            cout<< i<<'|';
-          
-            for(int j = 0;j<8;j++){
-                cout<<board[i][j]<<'|';
-            }
-            cout<<endl;
-         }
-    
-    cout<< "Enter the piece you want to move"<<endl;
-    int row1,col1,row2,col2;
-    cin>>row1>>col1;
-    cout<< "Enter the place you want to move to"<<endl;
-    cin>>row2>>col2;
-
-    if(move()){
-        swap(board[row1][col1],board[row2][col2]);
-    }
-    }while(jumpAgain());   
-}
 }  
 
 /*
