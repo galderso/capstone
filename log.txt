@@ -1,0 +1,6 @@
+11-17-22 @ 4:00pm - 5:00pm
+We met up to discuss what game we are going to make and created a github to work on checkers together.
+
+11-29-22 @ 4:00pm - 6:00pm
+Grant had already started on the main and created a few functions. We added a header file to store and connect the functions
+throughout the files. Main will run everything.
