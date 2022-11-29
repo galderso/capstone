@@ -4,13 +4,13 @@
 #include<vector>
 
 using namespace std;
-bool kinged(vector<vector<char>> board,int row1,int col1){
+bool Checkers::Kinged(vector<vector<char>> board,int row1,int col1){
     if(board[row1][col1]!='X'&&board[row1][col1]!='O'){
         return false;
     }
     return true;
 }
-bool move(vector<vector<char>> board,int row1,int col1,int row2, int col2){
+bool Checkers::move(vector<vector<char>> board,int row1,int col1,int row2, int col2){
     if(kinged(board,row1,col1)==false){// if not kinged
         if(board[row1][col1]=='o'){
             if((row2==row1+1&&row2==row1+2)&&(col2==col1+1&&col2==col1-1&&col2==col1+2&&col2==col1-2)){
@@ -31,7 +31,7 @@ bool move(vector<vector<char>> board,int row1,int col1,int row2, int col2){
 }
 
 
-bool winner(vector<vector<char>> board){
+bool Checkers::Winner(vector<vector<char>> board){
     int count1=0,count2=0;
     for(int i =0 ;i<8;i++){
         for(int j = 0;j<8;j++){
@@ -49,7 +49,16 @@ bool winner(vector<vector<char>> board){
     return false;
 }
 
-
+void Checkers::Display(vector<vector<char>> board){
+    cout << "  0 1 2 3 4 5 6 7" << endl;
+    for(int i = 0; i < 8; i++){
+        cout << i << '|';
+        for(int j = 0; j < 8; j++){
+            cout << board[i][j] << "|";
+        }
+        cout << endl;
+    }
+}
 
 
 
