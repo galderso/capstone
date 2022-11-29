@@ -42,11 +42,11 @@ int main(){
             cout << "Enter the place you want to move to" << endl;
             cin >> row2 >> col2;
 
-            if(c.Move() == true){
-                swap(board[row1][col1],board[row2][col2]);
+            if(c.Move() == true && ((turn % 2 == 1 && (board[row1][col1] == 'o' || board[row1][col1] == 'O')) || (turn % 2 == 2 && (board[row1][col1] == 'x' || board[row1][col1] == 'X')))){
+                swap(board[row1][col1],board[row2][col2])
             }
             turn += 1;
-        }while(c.JumpPiece(Player1, Player2));   //FIX THIS!!!
+        } while(c.jump(Player1, Player2));   //FIX THIS!!!
     }
 
     return 0;

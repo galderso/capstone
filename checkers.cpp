@@ -17,21 +17,21 @@ bool Checkers::Move(vector<vector<char>> &board,int row1,int col1,int row2, int 
             if((row2==row1+1&&row2==row1+2)&&(col2==col1+1&&col2==col1-1&&col2==col1+2&&col2==col1-2)){
                 
 
-            }
-        }else if(board[row1][col1]=='o'){
-            if((row2==row1-1&&row2==row1-2)&&(col2==col1+1&&col2==col1-1&&col2==col1+2&&col2==col1-2)){
+                }
+            }else if(board[row1][col1]=='o'){
+                if((row2==row1-1&&row2==row1-2)&&(col2==col1+1&&col2==col1-1&&col2==col1+2&&col2==col1-2)){// validplace to move
                 
 
+                }
+
+            }else{
+                cout << "Invalid piece"<<endl;
             }
 
-        }else{
-            cout << "Invalid piece" <<endl;
+        }else{// has been kinged conditions
+
         }
-
-    }else{// has been kinged conditions
-
     }
-}
 
 bool Checkers::Winner(vector<vector<char>> board){
     int count1=0,count2=0;
