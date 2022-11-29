@@ -10,7 +10,9 @@ bool Checkers::Kinged(vector<vector<char>> board,int row1,int col1){
     }
     return true;
 }
+
 bool Checkers::Move(vector<vector<char>> &board,int row1,int col1,int row2, int col2){
+    if(board[row2][col2]==' '){// checks if spot not occupied
     if(Kinged(board,row1,col1)==false){// if not kinged
         if(board[row1][col1]=='x'){
             if((row2==row1+1&&row2==row1+2)&&(col2==col1+1&&col2==col1-1&&col2==col1+2&&col2==col1-2)){
@@ -32,6 +34,7 @@ bool Checkers::Move(vector<vector<char>> &board,int row1,int col1,int row2, int 
         }
     }
 }
+
 
 
 bool Checkers::Winner(vector<vector<char>> board){
