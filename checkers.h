@@ -12,6 +12,7 @@ class Checkers{
         bool Move();
         void JumpPiece(char piece1, char piece2);
         bool Check_for_King(char piece, vector<vector<char>> board);
+        void Display(vector<vector<char>> board);
 
 
 };
