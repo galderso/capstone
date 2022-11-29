@@ -5,6 +5,7 @@ using namespace std;
 
 int main(){
     Checkers c; //Object when calling functions
+
     int turn = 1; // Tracks turns
     
     cout << "Welcome to checkers" << endl;
@@ -47,6 +48,11 @@ int main(){
             turn += 1;
         }while(c.JumpPiece(Player1, Player2));   //FIX THIS!!!
     }
+<<<<<<< HEAD
+            }while(c.jump(Player1, Player2));   //FIX THIS!!!
+        }
+=======
 
     return 0;
+>>>>>>> 53d83c8ae4b234c7809240da6cac1433cf16ccbe
 }
