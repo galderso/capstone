@@ -30,6 +30,8 @@ int main(){
                 cout<<endl;
             }
 
+            if(turn % 2 == 1) cout << "It's Player 1 (o's) turn. " << endl;
+            else cout << "It's Player 2 (x's) turn. " << endl; 
             cout << "Enter the piece you want to move" << endl;
             int row1,col1,row2,col2;
             cin >> row1 >> col1;
@@ -39,6 +41,7 @@ int main(){
             if(c.Move() == true){
                 swap(board[row1][col1],board[row2][col2]);
             }
+            turn += 1;
         }while(c.JumpPiece(Player1, Player2));   //FIX THIS!!!
     }
 
