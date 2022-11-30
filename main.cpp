@@ -38,10 +38,7 @@ int main(){
             cin >> row1 >> col1;
             cout << "Enter the place you want to move to" << endl;
             cin >> row2 >> col2;
-
-            if(c.Move() == true){
-                swap(board[row1][col1],board[row2][col2])
-            }
+            c.Move(board,row1,col1,row2,col2,turn);
             turn += 1;
         } while(c.Jump());   //FIX THIS!!!
     }
