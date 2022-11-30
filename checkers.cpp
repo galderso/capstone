@@ -18,20 +18,26 @@ bool Checkers::Move(vector<vector<char>> &board,int row1,int col1,int row2, int 
                 if((row2==row1+1&&row2==row1+2)&&(col2==col1+1&&col2==col1-1&&col2==col1+2&&col2==col1-2)){
                     if(Jump())
 
-                }
-            }else if(board[row1][col1]=='o'){
-                if((row2==row1-1&&row2==row1-2)&&(col2==col1+1&&col2==col1-1&&col2==col1+2&&col2==col1-2)){// validplace to move
+            }
+        }
+
+        else if(board[row1][col1]=='o' && turn % 2 == 1){
+            if((row2==row1-1&&row2==row1-2)&&(col2==col1+1&&col2==col1-1&&col2==col1+2&&col2==col1-2)){// validplace to move
                 
 
-                }
-
-            }else{
-                cout << "Invalid piece"<<endl;
             }
 
-        }else{// has been kinged conditions
-
         }
+
+        else{
+            cout << "Invalid piece"<<endl;
+        }
+
+    }
+}
+
+    else{// has been kinged conditions
+
     }
 }
 
@@ -72,7 +78,7 @@ void Checkers::Jump(vector<vector<char>> &board, int row1, int col1, int row2, i
 
 /*
 
-   void swap(int i,int j){
+   void swap(int &i,int &j){
     int temp = i;
     i=j;
     j=temp;
