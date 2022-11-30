@@ -30,7 +30,7 @@ int main(){
                 }
                 cout<<endl;
             }
-
+            do{//loops again if piece was not valid
             if(turn % 2 == 1) cout << "It's Player 1 (o's) turn. " << endl;
             else cout << "It's Player 2 (x's) turn. " << endl; 
             cout << "Enter the piece you want to move" << endl;
@@ -38,8 +38,11 @@ int main(){
             cin >> row1 >> col1;
             cout << "Enter the place you want to move to" << endl;
             cin >> row2 >> col2;
-            c.Move(board,row1,col1,row2,col2,turn);
+            if(c.Move(board,row1,col1,row2,col2,turn)==true){
             turn += 1;
+            break;
+            }
+            }while(true);
         } while(c.Jump());   //FIX THIS!!!
     }
 

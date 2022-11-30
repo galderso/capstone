@@ -4,14 +4,14 @@
 #include<vector>
 using namespace std;
 
-bool Checkers::Kinged(vector<vector<char>> board,int row1,int col1){
+bool Checkers::Kinged(vector<vector<char>> board,int row1,int col1){//checks ifa piece is kinged or not
     if(board[row1][col1]!='X'&&board[row1][col1]!='O'){
         return false;
     }
     return true;
 }
 
-bool Checkers::Move(vector<vector<char>> &board,int row1,int col1,int row2, int col2,int turn){
+bool Checkers::Move(vector<vector<char>> &board,int row1,int col1,int row2, int col2,int turn){//checks all conditions for moving a piece and moves it
     if(board[row2][col2]==' '){// checks if spot not occupied
     if(Kinged(board,row1,col1)==false){// if not kinged
             if(board[row1][col1]=='x'){//checks if moving piece is x
@@ -20,32 +20,29 @@ bool Checkers::Move(vector<vector<char>> &board,int row1,int col1,int row2, int 
                         Jump(board,row1,col1,row2,col2);
                         board[row2][col2]='x';
                         board[row1][col1]=' ';
+                        return true;
                         
                     }else{//not jumping
                         board[row2][col2]='x';
                         board[row1][col1]=' ';
-
+                        return true;
                     }
             } 
-        }else if(board[row1][col1]=='o' && turn % 2 == 1){
+        }else if(board[row1][col1]=='o' && turn % 2 == 1){//checks piece o
             if((row2==row1-1&&row2==row1-2)&&(col2==col1+1&&col2==col1-1&&col2==col1+2&&col2==col1-2)){// validplace to move
-                if(row2==row1+2||col2==col1+2||col2==col1-2){//jumping
+                if(row2==row1-2||col2==col1+2||col2==col1-2){//jumping
                     Jump(board,row1,col1,row2,col2);
                     board[row2][col2]='o';
                     board[row1][col1]=' ';
-                        
+                    return true;
+
                 }else{//not jumping                   
                     board[row2][col2]='o';
                     board[row1][col1]=' ';
-
-
+                    return true;
                 }
-
             }
-
-        }
-
-        else{
+        }else{
             cout << "Invalid piece"<<endl;
         }
 
@@ -57,7 +54,7 @@ bool Checkers::Move(vector<vector<char>> &board,int row1,int col1,int row2, int 
     }
 }
 
-bool Checkers::Winner(vector<vector<char>> board){
+bool Checkers::Winner(vector<vector<char>> board){//checks for winner
     int count1=0,count2=0;
     for(int i =0 ;i<8;i++){
         for(int j = 0;j<8;j++){
@@ -87,20 +84,11 @@ void Checkers::Display(vector<vector<char>> board){
 }
 
 //Remove the opponent's piece when jumping over it
-void Checkers::Jump(vector<vector<char>> &board, int row1, int col1, int row2, int col2){
+void Checkers::Jump(vector<vector<char>> &board, int row1, int col1, int row2, int col2){//removes element between where piece starts and ends up
   
 }
 
 
-/*
-
-   void swap(int &i,int &j){
-    int temp = i;
-    i=j;
-    j=temp;
-   }
-*/
-    //swap :swaps element when player moves
     //move:checks if a move is valid
     //jump: checks if move is a jump and if jump is possible(inbetween is opposite)and removes inbetween
     //jumpAgain: checks if jump again is possible
