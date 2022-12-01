@@ -22,13 +22,15 @@ bool Checkers::Move(vector<vector<char>> &board,int row1,int col1,int row2, int 
                         board[row1][col1]=' ';
                         return true;
                         
-                    }else{//not jumping
+                    }
+                    else{//not jumping
                         board[row2][col2]='x';
                         board[row1][col1]=' ';
                         return true;
                     }
             } 
-        }else if(board[row1][col1]=='o' && turn % 2 == 1){//checks piece o
+        }
+        else if(board[row1][col1]=='o' && turn % 2 == 1){//checks piece o
             if((row2==row1-1&&row2==row1-2)&&(col2==col1+1&&col2==col1-1&&col2==col1+2&&col2==col1-2)){// validplace to move
                 if(row2==row1-2||col2==col1+2||col2==col1-2){//jumping
                     Jump(board,row1,col1,row2,col2);
@@ -36,13 +38,15 @@ bool Checkers::Move(vector<vector<char>> &board,int row1,int col1,int row2, int 
                     board[row1][col1]=' ';
                     return true;
 
-                }else{//not jumping                   
+                }
+                else{//not jumping                   
                     board[row2][col2]='o';
                     board[row1][col1]=' ';
                     return true;
                 }
             }
-        }else{
+        }
+        else{
             cout << "Invalid piece"<<endl;
         }
     }
@@ -81,8 +85,32 @@ void Checkers::Display(vector<vector<char>> board){
 }
 
 //Remove the opponent's piece when jumping over it
-bool Checkers::Jump(vector<vector<char>> &board, int row1, int col1, int row2, int col2){//removes element between where piece starts and ends up
-  
+void Checkers::Jump(vector<vector<char>> &board, int row1, int col1, int row2, int col2){//removes element between where piece starts and ends up
+    //Could check to make sure the piece removed is not the current player's piece
+    //Up and right
+    if(row1 > row2 && col1 < col2){
+        board[row1 - 1][col1 + 1] = ' ';
+        return;
+    }
+    //Up and left
+    else if(row1 > row2 && col1 > col2){
+        board[row1 - 1][col1 - 1] = ' ';
+        return;
+    }
+
+    //Make sure the piece is a king
+    if(Kinged(board, row1, row2)){
+        //Down and right
+        if(row1 < row2 && col1 > col2){
+            board[row1 + 1][col1 - 1] = ' ';
+            return;
+        }
+        //Down and left
+        else if(row1 < row2 && col1 < col2){
+            board[row1  + 1][col1 + 1] = ' ';
+            return;
+        }
+    }
 }
 
 
