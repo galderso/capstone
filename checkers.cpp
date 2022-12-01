@@ -161,6 +161,43 @@ void Checkers::Display(vector<vector<char>> board){
     }
 }
 
+bool Checkers::JumpAgain(vector<vector<char>> board,int row2,int col2){
+    if(Kinged(board,row2,col2)==false){
+        if(board[row2][col2]=='o'){
+            if(board[row2-2][col2+2]==' '&& (board[row2-1][col2+1]=='x'||board[row2-1][col2+1]=='X')){
+                return true;
+            }else if(board[row2-2][col2-2]==' '&&(board[row2-1][col2+1]=='x'||board[row2-1][col2+1]=='X')){
+                return true;
+            }
+        }else if(board[row2][col2]=='x'){//if x
+        if(board[row2+2][col2+2]==' '&& (board[row2-1][col2+1]=='o'||board[row2-1][col2+1]=='O')){
+                return true;
+            }else if(board[row2+2][col2-2]==' '&&(board[row2-1][col2+1]=='o'||board[row2-1][col2+1]=='O')){
+                return true;
+            }
+        }
+    }else{
+        if(board[row2][col2]=='O'){
+            if((board[row2-2][col2+2]==' '||board[row2+2][col2+2])&& (board[row2-1][col2+1]=='x'||board[row2-1][col2+1]=='X')){
+                return true;
+            }else if((board[row2-2][col2-2]==' '||board[row2+2][col2-2])&&(board[row2-1][col2+1]=='x'||board[row2-1][col2+1]=='X')){
+                return true;
+            }
+        }else{//if 'X'
+            if((board[row2+2][col2+2]==' '||board[row2+2][col2-2])&& (board[row2-1][col2+1]=='o'||board[row2-1][col2+1]=='O')){
+                return true;
+            }else if((board[row2+2][col2-2]==' '||board[row2+2][col2+2])&&(board[row2-1][col2+1]=='o'||board[row2-1][col2+1]=='O')){
+                return true;
+            }
+
+        }
+        
+
+        }
+    return false;
+    }
+
+
 
 
 
