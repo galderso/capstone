@@ -10,6 +10,34 @@ bool Checkers::Kinged(vector<vector<char>> board,int row1,int col1){//checks ifa
     }
     return true;
 }
+//Remove the opponent's piece when jumping over it
+void Checkers::Jump(vector<vector<char>> &board, int row1, int col1, int row2, int col2){//removes element between where piece starts and ends up
+    //Could check to make sure the piece removed is not the current player's piece
+    //Up and right
+    if(row1 > row2 && col1 < col2){
+        board[row1 - 1][col1 + 1] = ' ';
+        return;
+    }
+    //Up and left
+    else if(row1 > row2 && col1 > col2){
+        board[row1 - 1][col1 - 1] = ' ';
+        return;
+    }
+
+    //Make sure the piece is a king
+    if(Kinged(board, row1, row2)){
+        //Down and right
+        if(row1 < row2 && col1 > col2){
+            board[row1 + 1][col1 - 1] = ' ';
+            return;
+        }
+        //Down and left
+        else if(row1 < row2 && col1 < col2){
+            board[row1  + 1][col1 + 1] = ' ';
+            return;
+        }
+    }
+}
 
 bool Checkers::Move(vector<vector<char>> &board,int row1,int col1,int row2, int col2,int turn){//checks all conditions for moving a piece and moves it
     if(board[row2][col2]==' '){// checks if spot not occupied
@@ -21,9 +49,7 @@ bool Checkers::Move(vector<vector<char>> &board,int row1,int col1,int row2, int 
                         board[row2][col2]='x';
                         board[row1][col1]=' ';
                         return true;
-                        
-                    }
-                    else{//not jumping
+                    }else{//not jumping
                         board[row2][col2]='x';
                         board[row1][col1]=' ';
                         return true;
@@ -49,10 +75,44 @@ bool Checkers::Move(vector<vector<char>> &board,int row1,int col1,int row2, int 
         else{
             cout << "Invalid piece"<<endl;
         }
+    }else{//has been kinged
+    if(board[row1][col1]=='X'){//checks if moving piece is X
+                if((row2==row1+1||row2==row1+2||row2==row1-1||row2==row1-2)&&(col2==col1+1||col2==col1-1||col2==col1+2||col2==col1-2)){
+                    if(row2==row1+2||col2==col1+2||col2==col1-2){//jumping
+                        Jump(board,row1,col1,row2,col2);
+                        board[row2][col2]='X';
+                        board[row1][col1]=' ';
+                        return true;
+                    }
+                    else{//not jumping
+                        board[row2][col2]='X';
+                        board[row1][col1]=' ';
+                        return true;
+                    }
+            } 
+        }
+        else if(board[row1][col1]=='O' && turn % 2 == 1){//checks piece O
+            if((row2==row1-1||row2==row1-2||row2==row1+1||row2==row1+2)&&(col2==col1+1||col2==col1-1||col2==col1+2||col2==col1-2)){// validplace to move
+                if(row2==row1-2||col2==col1+2||col2==col1-2){//jumping
+                    Jump(board,row1,col1,row2,col2);
+                    board[row2][col2]='O';
+                    board[row1][col1]=' ';
+                    return true;
+                }
+                else{//not jumping                   
+                    board[row2][col2]='O';
+                    board[row1][col1]=' ';
+                    return true;
+                }
+            }
+        }
+        else{
+            cout << "Invalid piece"<<endl;
+        }
     }
-}else{// has been kinged conditions
-
-    }
+}
+cout<<"Invalid move";
+return false;
 }
 
 bool Checkers::Winner(vector<vector<char>> board){//checks for winner
@@ -84,34 +144,7 @@ void Checkers::Display(vector<vector<char>> board){
     }
 }
 
-//Remove the opponent's piece when jumping over it
-void Checkers::Jump(vector<vector<char>> &board, int row1, int col1, int row2, int col2){//removes element between where piece starts and ends up
-    //Could check to make sure the piece removed is not the current player's piece
-    //Up and right
-    if(row1 > row2 && col1 < col2){
-        board[row1 - 1][col1 + 1] = ' ';
-        return;
-    }
-    //Up and left
-    else if(row1 > row2 && col1 > col2){
-        board[row1 - 1][col1 - 1] = ' ';
-        return;
-    }
 
-    //Make sure the piece is a king
-    if(Kinged(board, row1, row2)){
-        //Down and right
-        if(row1 < row2 && col1 > col2){
-            board[row1 + 1][col1 - 1] = ' ';
-            return;
-        }
-        //Down and left
-        else if(row1 < row2 && col1 < col2){
-            board[row1  + 1][col1 + 1] = ' ';
-            return;
-        }
-    }
-}
 
 
     //move:checks if a move is valid

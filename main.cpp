@@ -19,9 +19,9 @@ int main(){
         {' ','o',' ','o',' ','o',' ','o'},
         {'o',' ','o',' ','o',' ','o',' '}
     };
-
-    while((c.Winner(board))!=false){
-        do{
+    c.Winner(board);
+    while(/*(c.Winner(board))!=*/false){
+       // do{
             cout<<"  0 1 2 3 4 5 6 7"<<endl;
             for(int i =0;i<8;i++){
                 cout<< i<<'|';
@@ -42,7 +42,7 @@ int main(){
             break;
             }
             }while(true);
-        } while(c.Jump(board,row1,col1,row2,col2));   //FIX THIS!!!
+  //      } while(c.Jump(board,row1,col1,row2,col2));   //FIX THIS!!!
     }
     return 0;
 }
