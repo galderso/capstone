@@ -7,7 +7,7 @@ int main(){
     Checkers c; //Object when calling functions
 
     int turn = 1; // Tracks turns
-
+    int row1,col1,row2,col2;
     cout << "Welcome to checkers" << endl;
     vector<vector<char>> board{
         {' ','x',' ','x',' ','x',' ','x'},
@@ -19,9 +19,9 @@ int main(){
         {' ','o',' ','o',' ','o',' ','o'},
         {'o',' ','o',' ','o',' ','o',' '}
     };
-
-    while((c.Winner(board))!=false){
-        do{
+    c.Winner(board);
+    while(/*(c.Winner(board))!=*/false){
+       // do{
             cout<<"  0 1 2 3 4 5 6 7"<<endl;
             for(int i =0;i<8;i++){
                 cout<< i<<'|';
@@ -30,24 +30,19 @@ int main(){
                 }
                 cout<<endl;
             }
-
+            do{//loops again if piece was not valid
             if(turn % 2 == 1) cout << "It's Player 1 (o's) turn. " << endl;
             else cout << "It's Player 2 (x's) turn. " << endl; 
-
-            int row1,col1,row2,col2;
-            
             cout << "Enter the piece you want to move" << endl;
             cin >> row1 >> col1;
-
             cout << "Enter the place you want to move to" << endl;
             cin >> row2 >> col2;
-
-            if(c.Move() == true){
-                swap(board[row1][col1],board[row2][col2])
-            }
+            if(c.Move(board,row1,col1,row2,col2,turn)==true){
             turn += 1;
-        } while(c.Jump());   //FIX THIS!!!
+            break;
+            }
+            }while(true);
+  //      } while(c.Jump(board,row1,col1,row2,col2));   //FIX THIS!!!
     }
-
     return 0;
 }
