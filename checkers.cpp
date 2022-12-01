@@ -11,12 +11,13 @@ bool Checkers::Kinged(vector<vector<char>> board,int row1,int col1){//checks ifa
     return true;
 }
 //Remove the opponent's piece when jumping over it
-void Checkers::Jump(vector<vector<char>> &board, int row1, int col1, int row2, int col2){//removes element between where piece starts and ends up
+bool Checkers::Jump(vector<vector<char>> &board, int row1, int col1, int row2, int col2){//removes element between where piece starts and ends up
     //Could check to make sure the piece removed is not the current player's piece
     //Up and right
     if(row1 > row2 && col1 < col2){
         board[row1 - 1][col1 + 1] = ' ';
-        return;
+        //check if can jump again
+        //if not, then return true
     }
     //Up and left
     else if(row1 > row2 && col1 > col2){
