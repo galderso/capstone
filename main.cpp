@@ -42,7 +42,7 @@ int main(){
             break;
             }
             }while(true);
-       } while(c.Jumpagain(board,row2,col2));   //FIX THIS!!!
+       } while(c.JumpAgain(board,row2,col2));   //FIX THIS!!!
     }
     return 0;
 }
