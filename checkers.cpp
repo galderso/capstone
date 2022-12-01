@@ -10,10 +10,6 @@ bool Checkers::Kinged(vector<vector<char>> board,int row1,int col1){//checks ifa
     }
     return true;
 }
-<<<<<<< HEAD
-
-bool Checkers::Move(vector<vector<char>> &board,int row1,int col1,int row2, int col2, int turn){
-=======
 //Remove the opponent's piece when jumping over it
 void Checkers::Jump(vector<vector<char>> &board, int row1, int col1, int row2, int col2){//removes element between where piece starts and ends up
     //Could check to make sure the piece removed is not the current player's piece
@@ -45,7 +41,6 @@ void Checkers::Jump(vector<vector<char>> &board, int row1, int col1, int row2, i
 
 bool Checkers::Move(vector<vector<char>> &board,int row1,int col1,int row2, int col2,int turn){//checks all conditions for moving a piece and moves it
     if(board[row2][col2]==' '){// checks if spot not occupied
->>>>>>> edabd6821bc0ce17374862301a10bb6c2e88f14b
     if(Kinged(board,row1,col1)==false){// if not kinged
             if(board[row1][col1]=='x'){//checks if moving piece is x
                 if((row2==row1+1&&row2==row1+2)&&(col2==col1+1&&col2==col1-1&&col2==col1+2&&col2==col1-2)){
@@ -120,29 +115,7 @@ cout<<"Invalid move";
 return false;
 }
 
-<<<<<<< HEAD
-    else{// has been kinged conditions
-         if(board[row1][col1]=='x' && turn % 2 == 2){
-            if((row2==row1+1&&row2==row1+2)&&(col2==col1+1 && col2==col1-1 && col2==col1+2 && col2==col1-2)){
-                
-
-            }
-        }
-
-        else if(board[row1][col1]=='o' && turn % 2 == 1){
-            if((row2==row1-1&&row2==row1-2)&&(col2==col1+1 && col2==col1-1 && col2==col1+2 && col2==col1-2)){// validplace to move
-                
-
-            }
-
-        }
-    }
-}
-
-bool Checkers::Winner(vector<vector<char>> board){
-=======
 bool Checkers::Winner(vector<vector<char>> board){//checks for winner
->>>>>>> edabd6821bc0ce17374862301a10bb6c2e88f14b
     int count1=0,count2=0;
     for(int i =0 ;i<8;i++){
         for(int j = 0;j<8;j++){
