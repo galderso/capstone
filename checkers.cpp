@@ -11,7 +11,7 @@ bool Checkers::Kinged(vector<vector<char>> board,int row1,int col1){//checks ifa
     return true;
 }
 //Remove the opponent's piece when jumping over it
-void Checkers::Jump(vector<vector<char>> &board, int row1, int col1, int row2, int col2){//removes element between where piece starts and ends up
+bool Checkers::Jump(vector<vector<char>> &board, int row1, int col1, int row2, int col2){//removes element between where piece starts and ends up
     //Could check to make sure the piece removed is not the current player's piece
     //Up and right
     if(row1 > row2 && col1 < col2){
@@ -40,13 +40,15 @@ void Checkers::Jump(vector<vector<char>> &board, int row1, int col1, int row2, i
 }
 
 bool Checkers::Move(vector<vector<char>> &board,int row1,int col1,int row2, int col2,int turn){//checks all conditions for moving a piece and moves it
-    if(board[row2][col2]==' '&&row2){// checks if spot not occupied
+    if(board[row2][col2]==' '&& row2 <8 && row2>=0 && col2<8 && col2>=0){// checks if spot not occupied
     if(Kinged(board,row1,col1)==false){// if not kinged
             if(board[row1][col1]=='x'){//checks if moving piece is x
                 if((row2==row1+1&&row2==row1+2)&&(col2==col1+1&&col2==col1-1&&col2==col1+2&&col2==col1-2)){
                     if(row2==row1+2||col2==col1+2||col2==col1-2){//jumping
-                        Jump(board,row1,col1,row2,col2);
-                        if(col2==7){
+                        if(Jump(board,row1,col1,row2,col2)==false){
+                            return false;
+                        }
+                        if(col2==7){//kings
                             board[row2][col2]='X';
                         }else{
                         board[row2][col2]='x';
@@ -63,8 +65,10 @@ bool Checkers::Move(vector<vector<char>> &board,int row1,int col1,int row2, int 
         else if(board[row1][col1]=='o' && turn % 2 == 1){//checks piece o
             if((row2==row1-1&&row2==row1-2)&&(col2==col1+1&&col2==col1-1&&col2==col1+2&&col2==col1-2)){// validplace to move
                 if(row2==row1-2||col2==col1+2||col2==col1-2){//jumping
-                    Jump(board,row1,col1,row2,col2);
-                    if(col2==0){
+                    if(Jump(board,row1,col1,row2,col2)==false){
+                        return false;
+                    }
+                    if(col2==0){//kings
                             board[row2][col2]='O';
                         }else{
                         board[row2][col2]='o';
@@ -88,7 +92,9 @@ bool Checkers::Move(vector<vector<char>> &board,int row1,int col1,int row2, int 
     if(board[row1][col1]=='X'){//checks if moving piece is X
                 if((row2==row1+1||row2==row1+2||row2==row1-1||row2==row1-2)&&(col2==col1+1||col2==col1-1||col2==col1+2||col2==col1-2)){
                     if(row2==row1+2||col2==col1+2||col2==col1-2){//jumping
-                        Jump(board,row1,col1,row2,col2);
+                        if(Jump(board,row1,col1,row2,col2)==false){
+                            return false;
+                        }
                         board[row2][col2]='X';
                         board[row1][col1]=' ';
                         return true;
@@ -99,11 +105,12 @@ bool Checkers::Move(vector<vector<char>> &board,int row1,int col1,int row2, int 
                         return true;
                     }
             } 
-        }
-        else if(board[row1][col1]=='O' && turn % 2 == 1){//checks piece O
+        }else if(board[row1][col1]=='O' && turn % 2 == 1){//checks piece O
             if((row2==row1-1||row2==row1-2||row2==row1+1||row2==row1+2)&&(col2==col1+1||col2==col1-1||col2==col1+2||col2==col1-2)){// validplace to move
                 if(row2==row1-2||col2==col1+2||col2==col1-2){//jumping
-                    Jump(board,row1,col1,row2,col2);
+                    if(Jump(board,row1,col1,row2,col2)==false){
+                        return false;
+                    }
                     board[row2][col2]='O';
                     board[row1][col1]=' ';
                     return true;
