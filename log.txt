@@ -12,4 +12,4 @@ Makenzie worked on Jump()
 Grant worked on the conditions for Move()(not kinged)
 
 12-1-22 @ 4:00pm - 6:00pm
-Everyone met up and did some finishing touches
+Everyone met up and did some finishing touches and troubleshooted bugs
