@@ -41,7 +41,7 @@ bool Checkers::Jump(vector<vector<char>> &board, int row1, int col1, int row2, i
 }
 
 bool Checkers::Move(vector<vector<char>> &board,int row1,int col1,int row2, int col2,int turn){//checks all conditions for moving a piece and moves it
-    if(board[row2][col2]==' '){// checks if spot not occupied
+    if(board[row2][col2]==' '&&row2){// checks if spot not occupied
     if(Kinged(board,row1,col1)==false){// if not kinged
             if(board[row1][col1]=='x'){//checks if moving piece is x
                 if((row2==row1+1&&row2==row1+2)&&(col2==col1+1&&col2==col1-1&&col2==col1+2&&col2==col1-2)){
@@ -65,7 +65,7 @@ bool Checkers::Move(vector<vector<char>> &board,int row1,int col1,int row2, int 
             if((row2==row1-1&&row2==row1-2)&&(col2==col1+1&&col2==col1-1&&col2==col1+2&&col2==col1-2)){// validplace to move
                 if(row2==row1-2||col2==col1+2||col2==col1-2){//jumping
                     Jump(board,row1,col1,row2,col2);
-                    if(col2==7){
+                    if(col2==0){
                             board[row2][col2]='O';
                         }else{
                         board[row2][col2]='o';
