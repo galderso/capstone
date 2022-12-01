@@ -25,7 +25,7 @@ void Checkers::Jump(vector<vector<char>> &board, int row1, int col1, int row2, i
     }
 
     //Make sure the piece is a king
-    if(Kinged(board, row1, row2)){
+    if(Kinged(board, row1, col1)){
         //Down and right
         if(row1 < row2 && col1 > col2){
             board[row1 + 1][col1 - 1] = ' ';
