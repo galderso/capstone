@@ -46,7 +46,11 @@ bool Checkers::Move(vector<vector<char>> &board,int row1,int col1,int row2, int 
                 if((row2==row1+1&&row2==row1+2)&&(col2==col1+1&&col2==col1-1&&col2==col1+2&&col2==col1-2)){
                     if(row2==row1+2||col2==col1+2||col2==col1-2){//jumping
                         Jump(board,row1,col1,row2,col2);
+                        if(col2==7){
+                            board[row2][col2]='X';
+                        }else{
                         board[row2][col2]='x';
+                        }
                         board[row1][col1]=' ';
                         return true;
                     }else{//not jumping
@@ -60,7 +64,11 @@ bool Checkers::Move(vector<vector<char>> &board,int row1,int col1,int row2, int 
             if((row2==row1-1&&row2==row1-2)&&(col2==col1+1&&col2==col1-1&&col2==col1+2&&col2==col1-2)){// validplace to move
                 if(row2==row1-2||col2==col1+2||col2==col1-2){//jumping
                     Jump(board,row1,col1,row2,col2);
-                    board[row2][col2]='o';
+                    if(col2==7){
+                            board[row2][col2]='O';
+                        }else{
+                        board[row2][col2]='o';
+                        }
                     board[row1][col1]=' ';
                     return true;
 
@@ -70,6 +78,7 @@ bool Checkers::Move(vector<vector<char>> &board,int row1,int col1,int row2, int 
                     board[row1][col1]=' ';
                     return true;
                 }
+
             }
         }
         else{
