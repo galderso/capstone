@@ -65,10 +65,10 @@ bool Jump(vector<vector<char>> &board, int row1, int col1, int row2, int col2){/
 
 bool Move(vector<vector<char>> &board,int row1,int col1,int row2, int col2,int turn){//checks all conditions for moving a piece and moves it
     bool jump = false;
-    if(board[row2][col2]==' '&& row2 <8 && row2>=0 && col2<8 && col2>=0){// checks if spot not occupied
+    if(board[row2][col2]==' '&& row2 <8 && row2>=0 && col2<8 && col2>=0){// checks if spot not occupied and if within the board
     if(Kinged(board,row1,col1)==false){// if not kinged
             if(board[row1][col1]=='x'&& turn % 2 == 0){//checks if moving piece is x
-                if((row2==row1+1||row2==row1+2)&&(col2==col1+1||col2==col1-1||col2==col1+2||col2==col1-2)){
+                if((row2==row1+1||row2==row1+2)&&(col2==col1+1||col2==col1-1||col2==col1+2||col2==col1-2)){//checks movement for 'x'
                     if(row2==row1+2||col2==col1+2||col2==col1-2){//jumping
                         if(Jump(board,row1,col1,row2,col2)==false){
                             return false;
@@ -82,7 +82,7 @@ bool Move(vector<vector<char>> &board,int row1,int col1,int row2, int col2,int t
                         board[row1][col1]=' ';
                         return true;
                     }else{//not jumping
-                        if(row2==7){
+                        if(row2==7){//kings
                             board[row2][col2]='X';
                         }else{
                         board[row2][col2]='x';
@@ -109,7 +109,7 @@ bool Move(vector<vector<char>> &board,int row1,int col1,int row2, int col2,int t
 
                 }
                 else{//not jumping   
-                    if(row2==0){
+                    if(row2==0){//kings
                         board[row2][col2]='O';
                     }else{
                     board[row2][col2]='o';
@@ -165,7 +165,7 @@ bool Move(vector<vector<char>> &board,int row1,int col1,int row2, int col2,int t
 cout<<"Invalid move."<<endl;
 return false;
 }
-
+//checks for a winner
 bool Winner(vector<vector<char>> board){//checks for winner
     int count1=0,count2=0;
     for(int i =0 ;i<8;i++){
@@ -188,7 +188,7 @@ bool Winner(vector<vector<char>> board){//checks for winner
     }
     return false;
 }
-
+//displays board
 void Display(vector<vector<char>> board){
     cout << "  0 1 2 3 4 5 6 7" << endl;
     for(int i = 0; i < 8; i++){
@@ -200,7 +200,7 @@ void Display(vector<vector<char>> board){
     }
 }
 
-bool JumpAgain(vector<vector<char>> &board,int row2,int col2){
+bool JumpAgain(vector<vector<char>> &board,int row2,int col2){//checks if there is another place to jump to
     if(Kinged(board,row2,col2)==false){
         if(board[row2][col2]=='o'){
 
@@ -247,7 +247,7 @@ bool JumpAgain(vector<vector<char>> &board,int row2,int col2){
 
 int main(){
     
-    int turn = 1,count=0; // Tracks turns
+    int turn = 1,count=0; // Tracks turns and jump count
     
     cout << "Welcome to checkers" << endl;
     vector<vector<char>> board{
@@ -290,9 +290,9 @@ int main(){
 
             break;
             }
-            }while(true);
+            }while(true);//loops if move was valid
        } while(jumpAgain);   //loops if jump again is possible
-       turn+=1;
+       turn+=1; //iterates turn
     }
     return 0;
 }
