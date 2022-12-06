@@ -1,5 +1,5 @@
 During our time doing the capstone, we encountered a number of bugs that we learned how to fix. 
-We also thought about better ways to implement the game after we had started, for instence we thought 
+We also thought about better ways to implement the game after we had started, for instance we thought 
 that it would have been better to implement a .h file that could hold our variables and board rather than having 
 to call them in every function. When we initially started the project we didnt realize the large amount of conditions 
 needed to move a piece, including a large amount of edge cases to keep the pieces on the board. We believe we should get
