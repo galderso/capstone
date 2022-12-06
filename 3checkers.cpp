@@ -37,7 +37,7 @@ bool Jump(vector<vector<char>> &board, int row1, int col1, int row2, int col2){/
     }
 
     //Make sure the piece is a king or x
-    if(Kinged(board, row1, col1) || board[row1][row2] == 'x'){
+    if(Kinged(board, row1, col1) || board[row1][col1] == 'x'){
         //Down and right
         if(row1 < row2 && col1 > col2){
             if(toupper(board[row1 + 1][col1 - 1]) != toupper(board[row1][col1])){
