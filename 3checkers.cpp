@@ -66,7 +66,7 @@ bool Move(vector<vector<char>> &board,int row1,int col1,int row2, int col2,int t
 bool jump =false;
     if(board[row2][col2]==' '&& row2 <8 && row2>=0 && col2<8 && col2>=0){// checks if spot not occupied
     if(Kinged(board,row1,col1)==false){// if not kinged
-            if(board[row1][col1]=='x'){//checks if moving piece is x
+            if(board[row1][col1]=='x'&& turn % 2 == 0){//checks if moving piece is x
                 if((row2==row1+1||row2==row1+2)&&(col2==col1+1||col2==col1-1||col2==col1+2||col2==col1-2)){
                     if(row2==row1+2||col2==col1+2||col2==col1-2){//jumping
                         if(Jump(board,row1,col1,row2,col2)==false){
@@ -99,7 +99,7 @@ bool jump =false;
                     }
                     if(row2==0){//kings
                             board[row2][col2]='O';
-                            cout<<"enter 13";
+                           
                         }else{
                         board[row2][col2]='o';
                         }
@@ -200,18 +200,17 @@ void Display(vector<vector<char>> board){
 }
 
 bool JumpAgain(vector<vector<char>> &board,int row2,int col2){
-    cout<<"enter5";
     if(Kinged(board,row2,col2)==false){
         if(board[row2][col2]=='o'){
-            cout<<"enter4";
+
             if(board[row2-2][col2+2]==' '&& (board[row2-1][col2+1]=='x'||board[row2-1][col2+1]=='X')){
-                cout<<"enter2";
+
                 return true;
             }else if(board[row2-2][col2-2]==' '&&(board[row2-1][col2-1]=='x'||board[row2-1][col2-1]=='X')){
-                cout<<"enter3";
+
                 return true;
             }else{
-                cout<<"enter12";
+
                 return false;
             }
         }else if(board[row2][col2]=='x'){//if x
@@ -220,14 +219,13 @@ bool JumpAgain(vector<vector<char>> &board,int row2,int col2){
             }else if(board[row2+2][col2-2]==' '&&(board[row2+1][col2-1]=='o'||board[row2+1][col2-1]=='O')){
                 return true;
             }else{
-                cout<<"enter12";
+
                 return false;
             }
-
         }
     }else{
         if(board[row2][col2]=='O'){
-            cout<<"enter1";
+
             if((board[row2-2][col2+2]==' '||board[row2+2][col2+2]==' ')&& ((board[row2-1][col2+1]=='x'||board[row2+1][col2+1]=='x')||(board[row2-1][col2+1]=='X'||board[row2+1][col2+1]=='X'))){
                 return true;
             }else if((board[row2-2][col2-2]==' '||board[row2+2][col2-2]==' ')&&((board[row2-1][col2-1]=='x'||board[row2+1][col2-1]=='x')||(board[row2-1][col2-1]=='X'||board[row2+1][col2-1]=='X'))){
@@ -242,9 +240,9 @@ bool JumpAgain(vector<vector<char>> &board,int row2,int col2){
 
         }
         }
-        cout<<"enter 9";
     return false;
     }
+
 
 int main(){
     
@@ -267,7 +265,6 @@ int main(){
         bool jumpAgain =false;
         count =0;
         do{
-
             do{//loops again if piece was not valid
             int row1=0,col1=0,row2=0,col2=0;
             if(turn % 2 == 1) cout << "It's Player 1 (o's) turn. " << endl;
@@ -277,12 +274,8 @@ int main(){
             cout << "Enter the place you want to move to:" << endl;
             cin >> row2 >> col2;
             if(Move(board,row1,col1,row2,col2,turn)==true){
-                cout<<"enter11";
 
                 Display(board);
-                
-                
-                
                 if(row1==row2+2||row1==row2-2){//checks if jumped
                 if(count==0){
                 if(JumpAgain(board,row2,col2)!=false){
@@ -293,14 +286,12 @@ int main(){
                     jumpAgain =false;
                 }
                 }
-                cout<<"enter10";
+
             break;
             }
             }while(true);
        } while(jumpAgain);   //loops if jump again is possible
        turn+=1;
-       cout<<"enter7";
     }
-    cout<<"exiting";
     return 0;
 }
