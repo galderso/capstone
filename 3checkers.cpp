@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <vector>
 #include <cctype>
@@ -37,8 +36,8 @@ bool Jump(vector<vector<char>> &board, int row1, int col1, int row2, int col2){/
         }
     }
 
-    //Make sure the piece is a king
-    if(Kinged(board, row1, col1)){
+    //Make sure the piece is a king or x
+    if(Kinged(board, row1, col1) || board[row1][row2] == 'x'){
         //Down and right
         if(row1 < row2 && col1 > col2){
             if(toupper(board[row1 + 1][col1 - 1]) != toupper(board[row1][col1])){
@@ -60,10 +59,12 @@ bool Jump(vector<vector<char>> &board, int row1, int col1, int row2, int col2){/
             }
         }
     }
+
+    return false;
 }
 
 bool Move(vector<vector<char>> &board,int row1,int col1,int row2, int col2,int turn){//checks all conditions for moving a piece and moves it
-bool jump =false;
+    bool jump = false;
     if(board[row2][col2]==' '&& row2 <8 && row2>=0 && col2<8 && col2>=0){// checks if spot not occupied
     if(Kinged(board,row1,col1)==false){// if not kinged
             if(board[row1][col1]=='x'){//checks if moving piece is x
