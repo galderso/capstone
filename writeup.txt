@@ -2,5 +2,7 @@ During our time doing the capstone, we encountered a number of bugs that we lear
 We also thought about better ways to implement the game after we had started, for instence we thought 
 that it would have been better to implement a .h file that could hold our variables and board rather than having 
 to call them in every function. When we initially started the project we didnt realize the large amount of conditions 
-needed to move a piece, including a large amount of edge cases to keep the pieces on the board. We believe we should get
-full discretionary points because we succesfully implemented checkers and learn a lot in the process.
+needed to move a piece, including a large amount of edge cases to keep the pieces on the board. Although there was a 
+large amount of conditions, it helped us to see how much effert goes into making a program that would be released to 
+the public and what potential employers would expect. We believe we should getfull discretionary points because we 
+succesfully implemented checkers and learn a lot in the process.
