@@ -2,7 +2,7 @@
 Everyone met up to discuss what game to make and created a github to work on checkers together.
 
 11-29-22 @ 4:00pm - 6:00pm
-Grant had already started on the main and created a few functions. We added a header file to store and connect the functions
+Grant had already started on the main and created a few functions Winner() and Kinged(). We added a header file to store and connect the functions
 throughout the files. Main will run everything.
 
 11-30-22 @ 1:50pm - 2:40pm
@@ -12,4 +12,5 @@ Makenzie worked on Jump()
 Grant worked on the conditions for Move()(not kinged)
 
 12-1-22 @ 4:00pm - 6:00pm
-Everyone met up and did some finishing touches and troubleshooted bugs
+Everyone met up and did some finishing touches and troubleshooted bugs. 
+Nick worked on turn counter and changing players when jumping, Makenzie worked on Jump(), Grant worked on JumpAgain().
