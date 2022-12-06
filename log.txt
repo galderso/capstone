@@ -9,11 +9,11 @@ throughout the files. Main will run everything.
 Makenzie worked on Jump()
 
 11-30-22 @ 8:00am - 9:00am
-Grant worked on the conditions for Move()(not kinged)
+Grant worked on the conditions for Move()
 
 12-1-22 @ 4:00pm - 6:00pm
 Everyone met up and did some finishing touches and troubleshooted bugs. 
 Nick worked on turn counter and changing players when jumping, Makenzie worked on Jump(), Grant worked on JumpAgain().
 
 12-6-22 @ 4:00pm - 6:00pm
-Error checked and finished the project
+Error checked and finished the project. Added comments wrote the writup.

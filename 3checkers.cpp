@@ -64,7 +64,6 @@ bool Jump(vector<vector<char>> &board, int row1, int col1, int row2, int col2){/
 }
 
 bool Move(vector<vector<char>> &board,int row1,int col1,int row2, int col2,int turn){//checks all conditions for moving a piece and moves it
-    bool jump = false;
     if(board[row2][col2]==' '&& row2 <8 && row2>=0 && col2<8 && col2>=0){// checks if spot not occupied and if within the board
     if(Kinged(board,row1,col1)==false){// if not kinged
             if(board[row1][col1]=='x'&& turn % 2 == 0){//checks if moving piece is x
