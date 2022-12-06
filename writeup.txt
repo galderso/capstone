@@ -1,3 +1,4 @@
+By: Grant Alderson, Makenzie Johnson, Nicholas Wandinata
 During our time doing the capstone, we encountered a number of bugs that we learned how to fix. 
 We also thought about better ways to implement the game after we had started, for instance we thought 
 that it would have been better to implement a .h file that could hold our variables and board rather than having 

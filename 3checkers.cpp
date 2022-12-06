@@ -1,3 +1,5 @@
+//By:Grant Alderson, Makenzie Johnson, Nicholas Wandinata
+//This program implements a game of checkers using a 2d vector and several functions that are called in main
 #include <iostream>
 #include <vector>
 #include <cctype>
