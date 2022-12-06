@@ -16,4 +16,4 @@ Everyone met up and did some finishing touches and troubleshooted bugs.
 Nick worked on turn counter and changing players when jumping, Makenzie worked on Jump(), Grant worked on JumpAgain().
 
 12-6-22 @ 4:00pm - 6:00pm
-Error checked and finished the project. Added comments wrote the writup.
+Error checked and finished the project. Added comments and wrote the writup.
