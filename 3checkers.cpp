@@ -286,7 +286,6 @@ int main(){
                     jumpAgain =false;
                 }
                 }
-
             break;
             }
             }while(true);//loops if move was valid
