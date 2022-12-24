@@ -10,3 +10,5 @@ order :
 git add .
 git commit -m " anything"
 git push
+
+run 3checkers.cpp to play
